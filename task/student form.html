@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>the student registration form </title>
+<script type="text/javascript">
+function validate() 
+{ 
+var i; 
+var name_str=document.my_form.name; 
+var phoneID=document.my_form.ph_txt; 
+var ph_str=document.my_form.ph_txt.value; 
+var str=document.my_form.Email_txt.value; 
+if(document.my_form.name_str.value=="") 
+{ 
+alert("Invalid name") 
+return false 
+} 
+if(document.my_form.Age_txt.value=="") 
+{ 
+alert("enter some age") 
+return false 
+} 
+if((document.my_form.Age_txt.value<"5")&&(document.my_form.Age_txt.value>"21")) 
+{ 
+alert("invalid age") 
+return false 
+} 
+if(ph_str.length<1||ph_str.length>11) 
+{
+alert("invalid length of phone number") 
+return false 
+} 
+for(i=0;i<ph_str.length;i++) 
+{ 
+var ch=ph_str.charAt(i); 
+if(((ch<"0")||(ch>"9"))) 
+{ 
+alert("invalid phone No") 
+phoneID.focus() 
+return false 
+} 
+} 
+var index_at=str.indexOf("@"); 
+var len=str.length; 
+var index_dot=str.indexOf("."); 
+var emailID=document.my_form.Email_txt; 
+if((emailID.value==null)||(emailID.value==" ")) 
+{ 
+alert("please enter your emailid") 
+emailID.focus() 
+return false 
+} 
+if(str.indexOf("@")==-1) 
+{ 
+alert("invalid emailid") 
+return false 
+} 
+if(str.indexOf(".")==-1 || str.indexOf(".")==0 || str.indexOf(".")==index_at) 
+{ 
+alert("invalid emailid") 
+return false 
+} 
+if(str.indexOf("@",(index_at+1))!=-1) 
+{ 
+alert("inalid emailid") 
+return false 
+} 
+if(str.indexOf(" ")!=-1) 
+{ 
+alert("invalid emailid") 
+return false 
+} 
+if(!document.my_form.group1[0].checked&&!document.my_form.group1[1].checked) 
+{ 
+alert("please select sex"); 
+return false; 
+} 
+return true; 
+} 
+</script> 
+</head> 
+<body bgcolor="aqua"> 
+<center><h3>Application form</h3></center> 
+<form name=my_form onsubmit=validate()> 
+<strong>Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</strong> 
+<input type=text name=name_str><br> 
+<strong>Age:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</strong> 
+<input type=text name=Age_txt><br> 
+<strong>PhoneNo:&nbsp&nbsp&nbsp</strong> 
+<input type=text name=ph_txt><br> 
+<strong>Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</strong> 
+<input type=text name=Email_txt><br> 
+<strong><br><br> <strong>Sex:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</strong> 
+<input type="radio" name="group1" value="male">male<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+<input type="radio" name="group1" value="female">female<br><br><br> 
+<strong>Hobby:</strong><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+<input type="checkbox" name="option1" value="singing">singing<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+<input type="checkbox" name="option1" value="reading">reading<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+<input type="checkbox" name="option1" value="watching T.v">watching T.v<br> &nbsp&nbsp&nbsp<br><br> 
+<strong>Country:</strong> <select name="my_menu"> 
+<option value="India">India</option> 
+<option value="China">China</option> 
+<option value="Sri Lanka">Sri Lanka</option> 
+</select> 
+<center> 
+<input type=submit value=Register> 
+<br> 
+</center> 
+</form> 
+</body> 
+</html> 
